@@ -1,0 +1,64 @@
+/* Layout and colors */
+:root { font-family: system-ui, sans-serif; color: #282638; background: #f5f3ef; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1000px; margin: auto; padding: 48px 24px 20px; }
+header { margin-bottom: 32px; }
+.eyebrow { font-size: 11px; letter-spacing: 2px; color: #777182; font-weight: 600; }
+h1 { font-size: clamp(34px, 6vw, 52px); letter-spacing: -2px; margin: 14px 0 8px; }
+h1 span { color: #8063c8; }
+header p, small, footer { color: #7a7484; }
+h2 { font-size: 20px; }
+h3 { font-size: 17px; margin: 0; }
+
+/* Three simple summary cards */
+.results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.results > div { background: #eae5f3; padding: 24px; border-radius: 16px; }
+.results .primary-result { background: #59438b; color: white; }
+.results span, .results small { display: block; font-size: 12px; }
+.results strong { display: block; font-size: 46px; font-weight: 600; margin: 8px 0; letter-spacing: -2px; }
+.primary-result small { color: #ded4f2; }
+#status { color: #a33232; font-size: 13px; min-height: 18px; }
+.section-heading, .semester-heading, .semester-footer, footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.section-heading { margin: 10px 0 14px; }
+
+/* Semester editor */
+.semester { background: white; border: 1px solid #e5e0e9; border-radius: 16px; padding: 24px; margin-bottom: 18px; }
+.semester-heading { margin-bottom: 24px; }
+.semester-heading h3 { margin-right: auto; }
+.semester-heading label { font-size: 13px; white-space: nowrap; }
+input[type=checkbox] { accent-color: #7655b2; }
+.course-grid { display: grid; grid-template-columns: minmax(100px, 2fr) 90px 90px minmax(110px, 1fr) 30px; gap: 10px; }
+.labels { font-size: 11px; color: #82798e; margin-bottom: 8px; }
+.course { margin-bottom: 10px; }
+input, select { width: 100%; min-width: 0; font: inherit; font-size: 14px; color: inherit; background: #faf9fb; border: 1px solid #e5e0e9; border-radius: 8px; padding: 11px; }
+input[type=checkbox] { width: auto; }
+select:disabled { opacity: .5; }
+input:invalid { border-color: #b94747; }
+button { font: inherit; font-size: 13px; color: #604390; border: 1px solid #d6c9e9; border-radius: 8px; background: #f4effc; padding: 10px 14px; cursor: pointer; }
+button:hover { background: #eae0f8; }
+button.quiet, footer button { background: none; border: none; color: #82778d; padding: 5px; }
+.course button { font-size: 22px; }
+:focus-visible { outline: 2px solid #8260bc; outline-offset: 2px; }
+.semester-footer { border-top: 1px solid #eeeaf2; padding-top: 16px; margin-top: 20px; font-size: 13px; }
+.value { color: #684a9b; font-size: 22px; margin-left: 10px; }
+details { padding: 20px 0; font-size: 13px; }
+summary { cursor: pointer; font-weight: 600; }
+details p { color: #776e81; line-height: 1.7; }
+#scale { display: flex; flex-wrap: wrap; gap: 8px; }
+#scale span { font-size: 11px; background: white; padding: 6px 10px; border-radius: 6px; }
+footer { font-size: 11px; padding: 20px 0; border-top: 1px solid #e3dfe6; }
+
+/* Smaller screens */
+@media (max-width: 650px) {
+  main { padding: 30px 12px 16px; }
+  .results { gap: 7px; }
+  .results > div { padding: 16px 10px; border-radius: 10px; }
+  .results strong { font-size: 32px; }
+  .results small { font-size: 10px; }
+  .semester { padding: 16px 12px; }
+  .semester-heading { flex-wrap: wrap; gap: 10px; }
+  .semester-heading .quiet { font-size: 11px; }
+  .course-grid { grid-template-columns: minmax(60px, 1fr) 58px 52px 83px 20px; gap: 5px; }
+  input, select { font-size: 12px; padding: 10px 3px; }
+}

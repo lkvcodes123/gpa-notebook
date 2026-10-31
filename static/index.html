@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPA Notebook</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <span class="eyebrow">YOUR STUDY TOOLKIT / 01</span>
+      <h1>GPA Notebook<span>.</span></h1>
+      <p>Your courses, your progress. Everything in one place.</p>
+    </header>
+
+    <section class="results" aria-label="GPA results">
+      <div class="primary-result"><span>Overall GPA</span><strong id="overall">—</strong><small>Uses each semester’s weighting setting</small></div>
+      <div><span>Unweighted GPA</span><strong id="unweighted">—</strong><small>On a 4.0 scale</small></div>
+      <div><span>Graded credits</span><strong id="credits">0</strong><small>Across all semesters</small></div>
+    </section>
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <div class="section-heading"><h2>Your semesters</h2><button id="add-semester">+ Add semester</button></div>
+    <div id="semesters"></div>
+
+    <details>
+      <summary>Grading scale & how it works</summary>
+      <p>GPA is total grade points × course credits, divided by total graded credits. Regular courses get no bonus; Honors adds 0.5 and AP / IB adds 1.0 when weighting is on. An F always earns zero. P, W, I and blank grades are excluded.</p>
+      <p>Overall GPA follows each semester’s weighting setting. Unweighted GPA always excludes bonuses. Your school’s policy may differ.</p>
+      <div id="scale"></div>
+    </details>
+    <footer><span id="saved">Automatically saved in this browser</span><button id="reset">Reset all</button></footer>
+  </main>
+
+  <template id="semester-template">
+    <section class="semester">
+      <div class="semester-heading">
+        <h3></h3>
+        <label><input type="checkbox" data-action="weight"> Weighted</label>
+        <button data-action="remove-semester" class="quiet">Remove semester</button>
+      </div>
+      <div class="course-grid labels"><span>Course</span><span>Grade</span><span>Credits</span><span>Level</span><span></span></div>
+      <div class="rows"></div>
+      <div class="semester-footer"><button data-action="add-course">+ Add course</button><span>Semester GPA <strong class="value">—</strong></span></div>
+    </section>
+  </template>
+
+  <template id="course-template">
+    <div class="course-grid course">
+      <input data-field="name" placeholder="Course name" aria-label="Course name">
+      <select data-field="grade" aria-label="Grade"></select>
+      <input data-field="credits" type="number" min="0" max="1000" step="any" aria-label="Credits">
+      <select data-field="level" aria-label="Course level"></select>
+      <button data-action="remove-course" class="quiet" aria-label="Remove course">×</button>
+    </div>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>
